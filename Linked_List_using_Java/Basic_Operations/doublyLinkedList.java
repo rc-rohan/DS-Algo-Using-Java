@@ -80,7 +80,7 @@ public class doublyLinkedList {
         }
 
         int loc, length = 0;
-        Node prev;
+        Node prevNode;
         System.out.println("enter the Location of the Node");
         loc = sc.nextInt();
         temp = head;
@@ -92,25 +92,25 @@ public class doublyLinkedList {
             System.out.println("Deleted the first Node of the Linked List");
             return ;
         }
-        prev = head;
+        prevNode = head;
         while(temp.next!=null){
             if(length==loc){
                 break;
             }
             length++;
-            prev = temp;
+            prevNode = temp;
             temp=temp.next;
         }
         if(temp.next==null){
-            prev.next = null;
+            prevNode.next = null;
             temp.prev = null;
-            tail = prev;
+            tail = prevNode;
             System.out.println("Deleted Node : "+temp.data);
             System.out.println("Deleted the Node At last Position");
             return;
         }else{
-            prev.next=temp.next;
-            temp.next.prev = prev;
+            prevNode.next=temp.next;
+            temp.next.prev = prevNode;
             temp.prev = null;
             temp.next=null;
             System.out.println("Delted Node is "+temp.data);

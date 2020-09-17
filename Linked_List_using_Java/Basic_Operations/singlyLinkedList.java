@@ -1,4 +1,4 @@
-
+package Linked_List_using_Java.Basic_Operations;
 
 import java.util.Scanner;
 
@@ -91,7 +91,10 @@ public class singlyLinkedList {
         System.out.println("Enter the Node Location to delete");
         loc = sc.nextInt();
         temp = head;
-        if (loc == 0 || head==tail) {
+        if (loc == 0 ) {
+            if(head==tail){
+                tail=null;
+            }
             head = head.next;
             temp.next = null;
             System.out.println("Deleted the Node at : 1");
