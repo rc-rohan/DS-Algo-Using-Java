@@ -105,7 +105,6 @@ public class doublyLinkedList {
             prevNode.next = null;
             temp.prev = null;
             tail = prevNode;
-            System.out.println("Deleted Node : "+temp.data);
             System.out.println("Deleted the Node At last Position");
             return;
         }else{

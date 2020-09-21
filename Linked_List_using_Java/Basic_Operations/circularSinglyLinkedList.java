@@ -1,4 +1,4 @@
-package Linked_List_using_Java.Basic_Operations;
+// package Linked_List_using_Java.Basic_Operations;
 
 import java.util.Scanner;
 
@@ -37,7 +37,7 @@ public class circularSinglyLinkedList {
             head =  newNode;
             tail = newNode;
             newNode.next = head;
-            System.out.println("Added a new node in the Linked List");
+            System.out.println("Added a New Node in the Linked List");
             return;
         }else{
             System.out.println("Enter the Location to Insert New Node");
@@ -57,29 +57,81 @@ public class circularSinglyLinkedList {
                 }
                 length++;
                 prev=temp;
-                System.out.println(length);
-                System.out.println(temp.data+"->");
             }
-            if(temp.next==tail.next){
+            if(temp.next==head){
+                temp.next = newNode;
                 newNode.next = head;
-                tail.next = newNode;
+                tail = newNode;
                 System.out.println("Added a new Node at Last with data "+newNode.data);
-                return ;
             }else{
                 newNode.next = prev.next;
                 prev.next = newNode;
                 System.out.println("Entered New Node at: "+loc);
-                return ;
             }
         }
     }
 
+    private void deleteNode(){
+        int length=0,loc;
+        Node prev;
+        boolean check = checkForCSLL();
+        if(!check){
+            return;
+        }
+        System.out.println("Enter Location of the Node to be DELETED");
+        loc= sc.nextInt();
+        temp =head;
+        if(loc==0){
+            head = head.next;
+            tail.next = head;
+            temp.next=null;
+            System.out.println("Delted the First Node of the LINKED LIST");
+            return;
+        }
+        prev=head;
+        while(temp.next!=head){
+            if(length==loc){
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        if(temp.next==head){
+            prev.next = head;
+            tail = prev;
+            temp.next = null;
+            System.out.println("Deleted the Last node of the Linked List");
+        }else{
+            prev.next =temp.next;
+            temp.next =null;
+            System.out.println("Delted node at lcation "+loc);
+        }
+        return;
+    }
+
+    private void deleteEntireList(){
+        boolean check = checkForCSLL();
+        if(!check){
+            return;
+        }
+        temp=null;
+        head=null;
+        tail=null;
+        System.out.println("Deleted the Entire Linked List");
+    }
+
+
+
 
     private void printCSLL() {
-        for(temp=head; temp.next!=tail.next ; temp=temp.next){
+        boolean check = checkForCSLL();
+        if(!check){
+            return;
+        }
+        System.out.print(head.data+" ");
+        for(temp=head.next; temp!=head ; temp=temp.next){
             System.out.print(temp.data+" ");
         }
-        System.out.print(temp.data+" ");
     }
 
 
@@ -105,7 +157,7 @@ public class circularSinglyLinkedList {
                     break;
                 }
                 case 2: {
-                    // csll.deleteNode();
+                    csll.deleteNode();
                     break;
                 }
                 case 3: {
@@ -113,7 +165,7 @@ public class circularSinglyLinkedList {
                     break;
                 }
                 case 4: {
-                    // csll.deleteEntireList();
+                    csll.deleteEntireList();
                     break;
                 }
                 case 5: {

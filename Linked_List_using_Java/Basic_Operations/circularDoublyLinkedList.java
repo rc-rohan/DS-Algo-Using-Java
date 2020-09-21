@@ -56,6 +56,7 @@ public class circularDoublyLinkedList {
                 newNode.prev = temp;
                 tail = newNode;
                 newNode.next=head;
+                head.prev = newNode;
                 System.out.println("Added new Node at Last Positon");
                 return;
             }else{
@@ -70,12 +71,67 @@ public class circularDoublyLinkedList {
         }
     }
     private void deleteNode(){
+        int loc,length=0;
+        Node prevNode;
+        boolean check  = checkForCDLL();
+        if(!check){
+            return;
+        }
+
+        System.out.println("Enter the Location of Node to be DELETED");
+        loc = sc.nextInt();
+        temp =head;
+        if(loc==0){
+            head = head.next;
+            head.prev = tail;
+            tail.next=head;
+            temp.next=null;
+            temp.prev=null;
+            System.out.println("Delted the Node at the First Position");
+            return;
+        }
+        prevNode = head;
+        while(temp.next!=head){
+            if(length==loc){
+                break;
+            }
+            length++;
+            prevNode=temp;
+            temp=temp.next;
+        }
+        if(temp.next==head){
+            prevNode.next = head;
+            tail = prevNode;
+            temp.prev=null;
+            temp.next=null;
+            System.out.println("Deleted the last Node of the CDLL");
+        }else{
+            prevNode.next = temp.next;
+            temp.next.prev = prevNode;
+            temp.prev= null;
+            temp.next = null;
+            System.out.println("Deleted the Node at the loc "+loc);
+        }
+        return;
 
     }
 
     private void deleteEntireList() {
+        boolean check = checkForCDLL();
+        if(!check){
+            return;
+        }
+        head=null;
+        tail= null;
+        temp=null;
+        System.out.println("Deleted the entire Linked List");
+
     }
     private void printLinkedListReverse(){
+        boolean check = checkForCDLL();
+        if(!check){
+            return;
+        }
         System.out.print(tail.data+" ");
         for(temp=tail.prev;temp!=tail;temp=temp.prev){
             System.out.print(temp.data+" ");
@@ -83,6 +139,10 @@ public class circularDoublyLinkedList {
 
     }
     private void printLinkedList(){
+        boolean check = checkForCDLL();
+        if(!check){
+            return;
+        }
         System.out.print(head.data+" ");
         for(temp = head.next;temp!=head;temp=temp.next){
             System.out.print(temp.data+" ");
