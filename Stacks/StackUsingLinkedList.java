@@ -110,6 +110,7 @@ public class StackUsingLinkedList {
                     break;
 
                 default:
+                    System.out.println("Enter 1,2,3,4,5,6,9");
                     break;
             }
             System.out.print("\nEnter your choice for operation ");
