@@ -34,6 +34,7 @@ public class singlyLinkedList {
         return true;
     }
 
+    // Insert Data/ Creation of Linked List
     private void insertNode() {
         int data, loc, length = 0;
 
@@ -56,7 +57,7 @@ public class singlyLinkedList {
                 System.out.println("Updated the Head of the Linked List");
                 return;
             }
-            prev=head;
+            prev = head;
             for (temp = head; temp.next != null; temp = temp.next) {
                 if (length == loc) {
                     break;
@@ -78,7 +79,6 @@ public class singlyLinkedList {
         }
     }
 
-
     /* Deleting Node In the Linked List */
     private void deleteNode() {
         int loc, length = 0;
@@ -91,9 +91,9 @@ public class singlyLinkedList {
         System.out.println("Enter the Node Location to delete");
         loc = sc.nextInt();
         temp = head;
-        if (loc == 0 ) {
-            if(head==tail){
-                tail=null;
+        if (loc == 0) {
+            if (head == tail) {
+                tail = null;
             }
             head = head.next;
             temp.next = null;
@@ -161,30 +161,30 @@ public class singlyLinkedList {
         while (choice != 9) {
             switch (choice) {
 
-                case 1: {
-                    sll.insertNode();
-                    break;
-                }
-                case 2: {
-                    sll.deleteNode();
-                    break;
-                }
-                case 3: {
-                    // System.out.println();
-                    break;
-                }
-                case 4: {
-                    sll.deleteEntireList();
-                    break;
-                }
-                case 5: {
-                    sll.printLinkedList();
-                    break;
-                }
-                default:
+            case 1: {
+                sll.insertNode();
+                break;
+            }
+            case 2: {
+                sll.deleteNode();
+                break;
+            }
+            case 3: {
+                // System.out.println();
+                break;
+            }
+            case 4: {
+                sll.deleteEntireList();
+                break;
+            }
+            case 5: {
+                sll.printLinkedList();
+                break;
+            }
+            default:
 
-                    System.out.print("\nEnter Correct Choice : 1,2,3,4,5,6");
-                    break;
+                System.out.print("\nEnter Correct Choice : 1,2,3,4,5,6");
+                break;
             }
             System.out.print("\nEnter Your Choice : ");
             choice = sc.nextInt();

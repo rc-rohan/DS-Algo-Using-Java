@@ -1,0 +1,103 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch trial",
+      "request": "launch",
+      "mainClass": "Linked_List_using_Java.Basic_Operations.trial",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Launch CheckForAnagram",
+      "request": "launch",
+      "mainClass": "CheckForAnagram",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch circularDoublyLinkedList",
+      "request": "launch",
+      "mainClass": "Linked_List_using_Java.Basic_Operations.circularDoublyLinkedList",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch doublyLinkedList",
+      "request": "launch",
+      "mainClass": "Linked_List_using_Java.Basic_Operations.doublyLinkedList",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch singlyLinkedList",
+      "request": "launch",
+      "mainClass": "Linked_List_using_Java.Basic_Operations.singlyLinkedList",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch CircularQueue",
+      "request": "launch",
+      "mainClass": "Queue.CircularQueue",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch LinearQueueUsingArray",
+      "request": "launch",
+      "mainClass": "Queue.LinearQueueUsingArray",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch LinearQueueUsingLinkedList",
+      "request": "launch",
+      "mainClass": "Queue.LinearQueueUsingLinkedList",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch StackUsingArray",
+      "request": "launch",
+      "mainClass": "Stacks.StackUsingArray",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch StackUsingLinkedList",
+      "request": "launch",
+      "mainClass": "Stacks.StackUsingLinkedList",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch occuranceFrequency",
+      "request": "launch",
+      "mainClass": "occuranceFrequency",
+      "projectName": "Ds&Algo"
+    },
+    {
+      "type": "java",
+      "name": "Launch SLL",
+      "request": "launch",
+      "mainClass": "SLL"
+    },
+    {
+      "type": "java",
+      "name": "Launch StackByArrayMain",
+      "request": "launch",
+      "mainClass": "stack.StackByArrayMain"
+    }
+  ]
+}

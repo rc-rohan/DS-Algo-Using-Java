@@ -2,30 +2,33 @@ package Queue;
 
 import java.util.Scanner;
 
-public class LinearQueueUsingArray {
+public class CircularQueue {
 
     static Scanner sc = new Scanner(System.in);
 
     int queueArr[];
-    int startOfQueue=0;
+    int startOfQueue;
     int topOfQueue;
 
-    LinearQueueUsingArray(){
+    CircularQueue() {
         startOfQueue = 0;
-        topOfQueue =-1;
+        topOfQueue = -1;
     }
 
-
-    private boolean isEmpty(){
-        if(topOfQueue==-1){
+    private boolean isEmpty() {
+        if (topOfQueue == -1) {
             System.out.println("Queue is empty");
             return true;
         }
         return false;
     }
-    private boolean isFull(){
-        if(topOfQueue==queueArr.length-1){
+
+    private boolean isFull() {
+        if (topOfQueue+1==startOfQueue) {
             System.out.println("Queue is Full");
+            return true;
+        }else if(startOfQueue==0 && topOfQueue==queueArr.length){
+            System.out.println("Queue is full");
             return true;
         }
         return false;
@@ -33,7 +36,7 @@ public class LinearQueueUsingArray {
 
     private void createQueue() {
         int size;
-        if(queueArr != null){
+        if (queueArr != null) {
             System.out.println("Queue is already created");
             return;
         }
@@ -47,37 +50,46 @@ public class LinearQueueUsingArray {
 
     private void enQueue() {
         int data;
-        boolean check = isFull();
-        if(queueArr==null){
+        if (queueArr == null) {
             System.out.println("First create the Queue");
             return;
-        }
-        if(check){
+        }else if (isFull()) {
             return;
+        }else{
+            System.out.println("Enter data to ENQUEUE");
+            data = sc.nextInt();
+            if(topOfQueue+1 == queueArr.length){
+                topOfQueue = 0;
+            }else{
+                topOfQueue++;
+            }
+            queueArr[topOfQueue] = data;
+            System.out.println("Enters the Data in the Array");
         }
-        System.out.println("Enter data to ENQUEUE");
-        data=sc.nextInt();
-        queueArr[++topOfQueue]=data;
     }
 
-
-	private void deQueue() {
+    private void deQueue() {
         boolean check = isEmpty();
-        if(check){
+        if (check) {
             return;
         }
-        System.out.println("Element to be deQueued is "+queueArr[startOfQueue]);
-        startOfQueue++;
-        if(startOfQueue>topOfQueue){
+        System.out.println("Element to be deQueued is " + queueArr[startOfQueue]);
+        if(startOfQueue==topOfQueue){
             startOfQueue=0;
             topOfQueue=-1;
-            System.err.println("This was the last element in the queue");
+            System.out.println("this was the last element in th queue");
+        }
+        else if(startOfQueue == queueArr.length-1 ){
+            startOfQueue=0;
+        }
+        else {
+            startOfQueue++;
         }
     }
 
     private void peekInQueue() {
         boolean check = isEmpty();
-        if(check){
+        if (check) {
             return;
         }
         System.out.println(queueArr[startOfQueue]);
@@ -91,24 +103,24 @@ public class LinearQueueUsingArray {
         }
         System.out.println("Deleting the entire queue");
         queueArr = null;
-        topOfQueue=-1;
+        topOfQueue = -1;
         startOfQueue = 0;
     }
 
     private void printQueue() {
-        boolean check  = isEmpty();
-        if(check){
+        boolean check = isEmpty();
+        if (check) {
             return;
         }
-        for(int i=startOfQueue;i<=topOfQueue;i++){
-            System.out.print(queueArr[i]+" ");
+        for (int i = startOfQueue; i <= topOfQueue; i++) {
+            System.out.print(queueArr[i] + " ");
         }
 
     }
 
     public static void main(String[] args) {
         int choice;
-        LinearQueueUsingArray lq = new LinearQueueUsingArray();
+        CircularQueue cq = new CircularQueue();
 
         System.out.println("1) Creation of the Queue");
         System.out.println("2) ENQUEUE to Queue");
@@ -123,22 +135,22 @@ public class LinearQueueUsingArray {
         while (choice != 9) {
             switch (choice) {
                 case 1:
-                    lq.createQueue();
+                    cq.createQueue();
                     break;
                 case 2:
-                    lq.enQueue();
+                    cq.enQueue();
                     break;
                 case 3:
-                    lq.deQueue();
+                    cq.deQueue();
                     break;
                 case 4:
-                    lq.peekInQueue();
+                    cq.peekInQueue();
                     break;
                 case 5:
-                    lq.deleteQueue();
+                    cq.deleteQueue();
                     break;
                 case 6:
-                    lq.printQueue();
+                    cq.printQueue();
                     break;
 
                 default:
