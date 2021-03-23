@@ -112,6 +112,43 @@ public class BinaryTreeUsingLinkedList {
     }
   }
 
+  public Node deleteNode(Node node, int value) {
+    if (root == null) {
+      return null;
+    }
+
+    if (value < node.data) {
+      node.left = deleteNode(node.left, value);
+    } else if (value > node.data) {
+      node.right = deleteNode(node.right, value);
+    } else {
+      System.out.println(node.data);
+      if (node.left != null && node.right != null) {
+        Node temp=node.right;
+        Node minRightSubTree= minimumRightSubtree(temp);
+        // System.out.println(temp.data);
+        node.data = minRightSubTree.data;
+        deleteNode(node.right, minRightSubTree.data);
+
+      } else if (node.right == null) {
+        node = node.left;
+      } else if (node.left == null) {
+        node = node.right;
+      } else {
+        return null;
+      }
+    }
+    return node;
+  }
+
+  private Node minimumRightSubtree(Node node) {
+    System.out.println("finding minimmum"+node.data);
+    if (node.left == null)
+      return node;
+      // System.out.println(node.data);
+     return minimumRightSubtree(node.left);
+  }
+
   public static void main(String[] args) {
     System.out.println("Create your linked List");
     System.out.println("1.) Press 1 to Insert a Node");
@@ -138,8 +175,9 @@ public class BinaryTreeUsingLinkedList {
         break;
       }
       case 2: {
-        System.out.println("There is nthing to pront currently");
-        // bt.deleteNode();
+        System.out.println("Enter the value to be deleted");
+        value = sc.nextInt();
+        bt.deleteNode(bt.root, value);
         break;
       }
       case 3: {
