@@ -1,9 +1,8 @@
 package BinaryTree;
 
 import java.util.*;
-import java.io.*;
 
-public class BinaryTreeUsingLinkedList {
+public class BinarySearchTreeUsingLinkedList {
   private class Node {
     Node right;
     Node left;
@@ -161,7 +160,7 @@ public class BinaryTreeUsingLinkedList {
     System.out.println("9.) Press 9 to Exit");
     System.out.print("Enter Your Choice : ");
 
-    BinaryTreeUsingLinkedList bt = new BinaryTreeUsingLinkedList();
+    BinarySearchTreeUsingLinkedList bst = new BinarySearchTreeUsingLinkedList();
 
     int choice = sc.nextInt();
     int value;
@@ -171,35 +170,35 @@ public class BinaryTreeUsingLinkedList {
       case 1: {
         System.out.println("Enter the value of the node");
         value = sc.nextInt();
-        bt.insertNode(bt.root, value);
+        bst.insertNode(bst.root, value);
         break;
       }
       case 2: {
         System.out.println("Enter the value to be deleted");
         value = sc.nextInt();
-        bt.deleteNode(bt.root, value);
+        bst.deleteNode(bst.root, value);
         break;
       }
       case 3: {
         System.out.println("Enter the element tob e searched");
         value = sc.nextInt();
-        bt.searchElement(bt.root, value);
+        bst.searchElement(bst.root, value);
         break;
       }
       case 4: {
-        bt.preOrderTraversal(bt.root);
+        bst.preOrderTraversal(bst.root);
         break;
       }
       case 5: {
-        bt.inOrderTraversal(bt.root);
+        bst.inOrderTraversal(bst.root);
         break;
       }
       case 6: {
-        bt.postOrderTraversal(bt.root);
+        bst.postOrderTraversal(bst.root);
         break;
       }
       case 7: {
-        bt.levelOrderTraversal(bt.root);
+        bst.levelOrderTraversal(bst.root);
         break;
       }
       default:
